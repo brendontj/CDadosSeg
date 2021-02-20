@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" package="ch.protonvpn.android" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-feature android:name="android.software.leanback" android:required="false"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:banner="@drawable/tv_banner" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="com.protonvpn.android.ProtonApplication" android:networkSecurityConfig="@xml/network_security_config" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <activity android:name="com.protonvpn.android.tv.main.TvMainActivity" android:theme="@style/AppTheme.TV.Browse"/>
+        <activity android:name="com.protonvpn.android.tv.TvUpgradeActivity" android:theme="@style/AppTheme.TV.Browse"/>
+        <activity android:name="com.protonvpn.android.tv.TvTrialDialogActivity" android:theme="@style/AppTheme.TV.Browse"/>
+        <activity android:name="com.protonvpn.android.tv.TvGenericDialogActivity" android:theme="@style/AppTheme.TV.Browse"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:label="@string/app_name" android:name="com.protonvpn.android.ui.login.LoginActivity" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_home" android:launchMode="singleTop" android:name="com.protonvpn.android.ui.home.HomeActivity" android:resizeableActivity="true" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/log_title" android:name="com.protonvpn.android.vpn.LogActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.protonvpn.android.utils.DeepLinkActivity" android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="protonvpn"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="false" android:name="org.strongswan.android.logic.VpnStateService"/>
+        <service android:exported="false" android:name="com.protonvpn.android.vpn.ikev2.ProtonCharonVpnService" android:permission="android.permission.BIND_VPN_SERVICE">
+            <intent-filter>
+                <action android:name="android.net.VpnService"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.protonvpn.android.vpn.OpenVPNWrapperService" android:permission="android.permission.BIND_VPN_SERVICE">
+            <intent-filter>
+                <action android:name="android.net.VpnService"/>
+            </intent-filter>
+        </service>
+        <service android:icon="@drawable/ic_proton" android:label="Quick connect" android:name="com.protonvpn.android.components.QuickTileService" android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:exported="false" android:name="com.protonvpn.android.components.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.protonvpn.android.migration.MigrateReceiver"/>
+        <activity android:label="@string/activityProfileTitle" android:name="com.protonvpn.android.ui.home.profiles.ProfileActivity" android:parentActivityName="com.protonvpn.android.ui.home.HomeActivity" android:windowSoftInputMode="adjustResize">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.protonvpn.android.ui.home.HomeActivity"/>
+        </activity>
+        <activity android:label="@string/activityAccountTitle" android:name="com.protonvpn.android.ui.drawer.AccountActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/activityLicensesTitle" android:name="com.protonvpn.android.ui.drawer.OssLicensesActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/activityTroubleshootTitle" android:name="com.protonvpn.android.ui.login.TroubleshootActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/activitySettingsTitle" android:name="com.protonvpn.android.ui.drawer.SettingsActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/settingsAlwaysOnAndKillSwitchTitle" android:name="com.protonvpn.android.ui.drawer.AlwaysOnSettingsActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:label="@string/drawerReportBug" android:name="com.protonvpn.android.ui.drawer.ReportBugActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.protonvpn.android.ui.onboarding.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.protonvpn.android.ui.onboarding.OnboardingActivity" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:name="com.protonvpn.android.tv.TvLoginActivity" android:theme="@style/AppTheme.TV.Leanback">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="android.max_aspect" android:value="2.1"/>
+        <meta-data android:name="android.webkit.WebView.MetricsOptOut" android:value="true"/>
+        <meta-data android:name="android.content.APP_RESTRICTIONS" android:resource="@xml/app_restrictions"/>
+        <activity android:exported="false" android:name="de.blinkt.openpvpn.activities.VPNPreferences" android:windowSoftInputMode="stateHidden"/>
+        <activity android:autoRemoveFromRecents="true" android:excludeFromRecents="true" android:name="de.blinkt.openpvpn.activities.DisconnectVPN" android:noHistory="true" android:taskAffinity=".DisconnectVPN" android:theme="@style/blinkt.dialog"/>
+        <activity android:allowTaskReparenting="true" android:label="@string/openvpn_log" android:launchMode="singleTask" android:name="de.blinkt.openpvpn.activities.LogWindow"/>
+        <activity android:name="de.blinkt.openpvpn.activities.FileSelect"/>
+        <activity android:name="de.blinkt.openpvpn.api.GrantPermissionsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="de.blinkt.openpvpn.api.ConfirmDialog">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:autoRemoveFromRecents="true" android:excludeFromRecents="true" android:label="@string/vpn_launch_title" android:name="de.blinkt.openpvpn.LaunchVPN" android:taskAffinity=".LaunchVPN" android:theme="@style/blinkt.dialog">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="ch.protonvpn.android.leakcanary-installer" android:enabled="@bool/leak_canary_watcher_auto_install" android:exported="false" android:name="leakcanary.internal.AppWatcherInstaller$MainProcess"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="rx_activity_result2.HolderActivity" android:theme="@style/Theme.Transparent"/>
+        <provider android:authorities="ch.protonvpn.android.workmanager-init" android:directBootAware="false" android:exported="false" android:multiprocess="true" android:name="androidx.work.impl.WorkManagerInitializer"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <provider android:authorities="ch.protonvpn.android.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+    </application>
+</manifest>

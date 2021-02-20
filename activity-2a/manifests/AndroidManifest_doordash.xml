@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" package="com.dd.doordash" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:maxSdkVersion="22" android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-feature android:name="android.hardware.camera" android:required="true"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="true"/>
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
+            <data android:scheme="https"/>
+        </intent>
+    </queries>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="com.doordash.consumer.ConsumerApplicationImpl" android:requestLegacyExternalStorage="true" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/Theme.Consumer.DoorDash">
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="@string/google_maps_api_key"/>
+        <meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true"/>
+        <activity android:launchMode="singleTop" android:name="com.doordash.consumer.ui.login.LauncherActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Consumer.DoorDash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="com.dd.doordash"/>
+                <data android:scheme="doordash"/>
+                <data android:host="www.doordash.com" android:pathPrefix="/store" android:scheme="https"/>
+                <data android:host="drd.sh" android:scheme="http"/>
+                <data android:host="drd.sh"/>
+                <data android:host="www.doordash.com" android:pathPrefix="/cart" android:scheme="https"/>
+                <data android:host="drd.sh" android:pathPrefix="/cart" android:scheme="http"/>
+                <data android:host="www.doordash.com" android:pathPrefix="/apply" android:scheme="https"/>
+                <data android:host="www.doordash.com" android:pathPrefix="/tab" android:scheme="https"/>
+                <data android:host="www.doordash.com" android:pathPrefix="/offers" android:scheme="https"/>
+                <data android:host="www.doordash.com" android:pathPrefix="/filters" android:scheme="https"/>
+                <data android:host="www.doordash.com" android:pathPrefix="/categories" android:scheme="https"/>
+                <data android:host="www.doordash.com" android:pathPrefix="/qr-code" android:scheme="https"/>
+                <data android:host="www.doordash.com" android:pathPrefix="/manage-subscription" android:scheme="https"/>
+                <data android:host="www.doordash.com" android:pathPrefix="/dashpass" android:scheme="https"/>
+                <data android:host="www.doordash.com" android:pathPrefix="/dashpass-v2" android:scheme="https"/>
+                <data android:host="www.doordash.com" android:pathPrefix="/accounts/notifications" android:scheme="https"/>
+                <data android:host="www.doordash.com" android:pathPrefix="/accounts/password/reset" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="www.doordash.com" android:pathPattern="/" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="open" android:scheme="doordash"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="com.dd.doordash"/>
+                <data android:scheme="doordash"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https"/>
+                <data android:host="doordash.bttn.io"/>
+                <data android:pathPattern=".*"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:host="7wmw.adj.st" android:scheme="https"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.doordash.consumer.ui.login.LandingPageActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.doordash.consumer.ui.BaseConsumerActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.doordash.consumer.ui.dashboard.DashboardActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:name="com.doordash.consumer.ui.dashboard.explore.MealGiftMoreInfoHostActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.doordash.consumer.ui.merchantlist.MerchantListActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.doordash.consumer.ui.facetFeed.FacetFeedActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.doordash.consumer.ui.order.details.rate.RateOrderActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.doordash.consumer.ui.store.StoreActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:launchMode="singleTask" android:name="com.doordash.consumer.ui.store.item.StoreItemActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTask" android:name="com.doordash.consumer.ui.order.OrderActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:launchMode="singleTask" android:name="com.doordash.consumer.ui.support.SupportActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.doordash.consumer.ui.support.v2.SupportV2Activity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.doordash.consumer.ui.cms.CMSPromotionActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.doordash.consumer.ui.convenience.ConvenienceActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.doordash.consumer.ui.dashboard.account.AccountActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.doordash.consumer.ui.userinfo.UserInfoActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:launchMode="singleTask" android:name="com.doordash.consumer.ui.payments.PaymentsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:launchMode="singleTask" android:name="com.doordash.consumer.ui.giftcards.GiftCardsActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.doordash.consumer.ui.debug.DebugActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.doordash.consumer.ui.address.AddressActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTask" android:name="com.doordash.consumer.ui.plan.partnerdeeplink.PartnerPlanDeepLinkActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.doordash.consumer.ui.plan.manageplan.ManagePlanActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.doordash.consumer.ui.plan.planenrollment.PlanEnrollmentActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.doordash.consumer.ui.plan.planenrollment.bottomsheet.PartnerEnrollmentActivity" android:theme="@style/Theme.Transparent"/>
+        <activity android:launchMode="singleTask" android:name="com.doordash.consumer.ui.referral.ReferralActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.doordash.consumer.ui.notification.NotificationsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.doordash.consumer.ui.legal.LegalActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.doordash.consumer.ui.grouporder.CreateGroupOrderActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.doordash.consumer.ui.dashboard.deals.DealsActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.doordash.consumer.ui.store.category.ItemOfferActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.doordash.consumer.ui.bugreport.BugReportActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTask" android:name="com.doordash.consumer.ui.devicegating.DeviceGatedSplashActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.doordash.consumer.ui.order.details.ddchat.holder.ConsumerDDChatHolderActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.braintreepayments.api.BraintreeBrowserSwitchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="com.dd.doordash.braintree"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="false" android:name="com.doordash.consumer.payment.ActiveOrderService"/>
+        <service android:exported="false" android:name="com.doordash.consumer.geofence.PickupGeofenceService"/>
+        <receiver android:exported="false" android:name="com.doordash.consumer.geofence.PickupGeofenceBroadcastReceiver"/>
+        <receiver android:exported="false" android:name="com.doordash.consumer.ui.order.details.rate.LocaleChangeBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.doordash.consumer.core.adjust.InstallReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.doordash.consumer.notification.push.FCMMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="false" android:name="com.doordash.consumer.notification.push.DeviceNotificationSettingsReceiver">
+            <intent-filter>
+                <action android:name="android.app.action.NOTIFICATION_CHANNEL_BLOCK_STATE_CHANGED"/>
+                <action android:name="android.app.action.APP_BLOCK_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.doordash.android.ddchat.ui.holder.DDChatHolderActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.sendbird.uikit.activities.InviteChannelActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.sendbird.uikit.activities.MemberListActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.sendbird.uikit.activities.ChannelSettingsActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.sendbird.uikit.activities.ChannelListActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.sendbird.uikit.activities.ChannelActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.sendbird.uikit.activities.CreateChannelActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.sendbird.uikit.activities.PhotoViewActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.sendbird.uikit.activities.ModerationActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.sendbird.uikit.activities.PromoteOperatorsActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.sendbird.uikit.activities.OperatorListActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.sendbird.uikit.activities.BannedListActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.sendbird.uikit.activities.MutedMemberListActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.sendbird.uikit.activities.OpenChannelSettingsActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.sendbird.uikit.activities.ParticipantsListActivity"/>
+        <provider android:authorities="com.dd.doordash.provider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/sb_file_paths"/>
+        </provider>
+        <activity android:launchMode="singleTop" android:name="com.doordash.android.risk.cardchallenge.ui.CardScanActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.doordash.android.risk.cardreentry.ui.CardReentryActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:launchMode="singleTop" android:name="com.doordash.android.risk.mfa.ui.MfaActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.doordash.android.risk.shared.ui.screens.SupportWebPageActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.stripe.android.view.AddPaymentMethodActivity" android:theme="@style/StripeDefaultTheme"/>
+        <activity android:name="com.stripe.android.view.PaymentMethodsActivity" android:theme="@style/StripeDefaultTheme"/>
+        <activity android:name="com.stripe.android.view.PaymentFlowActivity" android:theme="@style/StripeDefaultTheme"/>
+        <activity android:name="com.stripe.android.view.PaymentAuthWebViewActivity" android:theme="@style/StripeDefaultTheme"/>
+        <activity android:name="com.stripe.android.view.PaymentRelayActivity" android:theme="@style/StripeDefaultTheme"/>
+        <activity android:name="com.stripe.android.view.Stripe3ds2CompletionActivity" android:theme="@style/StripeDefaultTheme"/>
+        <activity android:label="@string/activity_title_override_experiment" android:name="com.doordash.android.experiment.override.OverrideExperimentActivity"/>
+        <activity android:name="com.doordash.android.identity.ui.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/activity_title_telemetry_debugger" android:name="com.doordash.android.telemetry.debugger.TelemetryDebuggerActivity"/>
+        <activity android:name="com.stripe.android.stripe3ds2.views.ChallengeActivity" android:theme="@style/Stripe3DS2Theme"/>
+        <activity android:name="com.stripe.android.stripe3ds2.views.ChallengeProgressDialogActivity" android:theme="@style/Stripe3DS2Theme"/>
+        <activity android:name="com.getbouncer.cardverify.ui.local.CardVerifyActivity" android:screenOrientation="nosensor" android:theme="@style/BouncerDefaultTheme"/>
+        <service android:exported="false" android:name="com.iterable.iterableapi.IterableFirebaseMessagingService">
+            <intent-filter android:priority="-1">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="false" android:name="com.iterable.iterableapi.IterablePushActionReceiver">
+            <intent-filter>
+                <action android:name="com.iterable.push.ACTION_PUSH_ACTION"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.braintreepayments.api.internal.AnalyticsIntentService"/>
+        <activity android:name="com.braintreepayments.api.ThreeDSecureActivity"/>
+        <activity android:configChanges="orientation" android:name="com.getbouncer.cardscan.base.ScanActivityImpl" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.NoActionBar.FullScreen"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <provider android:authorities="com.dd.doordash.firebaseperfprovider" android:exported="false" android:initOrder="101" android:name="com.google.firebase.perf.provider.FirebasePerfProvider"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.dd.doordash.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <provider android:authorities="com.dd.doordash.workmanager-init" android:directBootAware="false" android:exported="false" android:multiprocess="true" android:name="androidx.work.impl.WorkManagerInitializer"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTask" android:name="com.salesforce.android.chat.ui.internal.chatfeed.ChatFeedActivity" android:theme="@style/SalesforceTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="orientation" android:launchMode="singleTask" android:name="com.salesforce.android.chat.ui.internal.prechat.PreChatActivity" android:theme="@style/SalesforceTheme.Floating"/>
+        <service android:name="com.salesforce.android.chat.core.internal.service.ChatService"/>
+        <service android:name="com.salesforce.android.service.common.liveagentlogging.internal.service.LiveAgentLoggingService"/>
+        <service android:exported="false" android:name="com.sendbird.android.SendBirdFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.sendbird.android.SendBirdFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.sendbird.android.SendBirdHmsMessagingService">
+            <intent-filter>
+                <action android:name="com.huawei.push.action.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <activity android:enabled="false" android:exported="false" android:launchMode="singleInstance" android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true"/>
+        <activity android:enabled="false" android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:process=":playcore_dialog_wrapper_activity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+        <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService"/>
+        <activity android:name="com.braintreepayments.api.GooglePaymentActivity" android:theme="@style/bt_transparent_activity"/>
+        <meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_STANDALONE_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>
