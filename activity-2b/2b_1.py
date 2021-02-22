@@ -3,24 +3,31 @@ import os
 import pefile
 
 
+def format_print(sections):
+    for k, v in sections.items():
+        print(k + ':', end='')
+        for value in v:
+            print('\t' + value)
+
+
 def enum_sections(executable):
     pe = pefile.PE(executable)
-    # print(pe.dump_info())
+    executable_sections = dict()
+    executable_sections[executable.name] = []
     for section in pe.sections:
-        print(section.Name.decode('utf-8'))
-
-        print(hex(bytes(section.Characteristics) - b'0x00000020'))
-
+        if section.IMAGE_SCN_MEM_EXECUTE:
+            executable_sections[executable.name].append(section.Name.decode('utf-8'))
+    return executable_sections
 
 
 def main():
     file = sys.argv[1]
     if os.path.isdir(file):
         with os.scandir(file) as files:
-            for file in files:
-                enum_sections(file)
+            for exe in files:
+                format_print(enum_sections(exe))
     elif os.path.isfile(file):
-        pass
+        format_print(enum_sections(file))
 
 
 if __name__ == '__main__':
