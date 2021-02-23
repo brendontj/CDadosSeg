@@ -1,0 +1,3 @@
+Seções comuns aos dois executáveis: .rsrc .data .rdata .text 
+Seções que estão presentes somente no primeiro executável: .code 
+Seções que estão presentes somente no secundo executável: .pdata .bss .qtmimed .xdata .idata .qtmetad .CRT .tls .edata .reloc 

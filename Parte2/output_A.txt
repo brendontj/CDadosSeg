@@ -1,0 +1,6 @@
+Nome binário: 		[Seções executáveis]
+msys2-x86_64-20201109.exe:
+			.text
+Calculator.exe:
+			.code
+			.text

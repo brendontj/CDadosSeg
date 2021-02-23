@@ -1,4 +1,5 @@
 import os
+import sys
 import xml.etree.ElementTree as Et
 
 
@@ -25,7 +26,8 @@ def print_1b(apk_permission):
 
 def main():
     apk_permission = {}
-    with os.scandir('manifests/') as entries:
+    dir = sys.argv[1]
+    with os.scandir(dir) as entries:
         for entry in entries:
             apk_permission[entry.name] = set()
             root = Et.parse(entry).getroot()
@@ -37,7 +39,6 @@ def main():
                     except IndexError:
                         continue
 
-    # print_response(apk_permission)
     print_1b(apk_permission)
 
 
