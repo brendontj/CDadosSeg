@@ -39,6 +39,7 @@ def main():
                     except IndexError:
                         continue
 
+    print_response(apk_permission)
     print_1b(apk_permission)
 
 
